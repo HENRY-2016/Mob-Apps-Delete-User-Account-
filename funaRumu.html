@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion Instructions - Funa Rumu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #1a202c;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .email-header {
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            padding: 50px 30px 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .email-header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .email-header::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -60px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-icon {
+            background: rgba(255, 255, 255, 0.2);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .email-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 20px 0 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .email-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .email-body {
+            padding: 50px 40px;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .instructions {
+            margin-bottom: 30px;
+            color: #4a5568;
+            font-size: 16px;
+        }
+        
+        .steps-container {
+            margin: 40px 0;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .step-number {
+            background: #e53e3e;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+        
+        .step-description {
+            color: #4a5568;
+            font-size: 15px;
+        }
+        
+        .warning-notice {
+            background: linear-gradient(to right, #fed7d7, #feb2b2);
+            border-left: 4px solid #e53e3e;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .warning-notice strong {
+            color: #c53030;
+        }
+        
+        .notice-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .data-notice {
+            background: linear-gradient(to right, #fffaf0, #fff5e6);
+            border-left: 4px solid #f6ad55;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .data-notice strong {
+            color: #c05621;
+        }
+        
+        .data-notice ul {
+            margin: 10px 0 0 20px;
+        }
+        
+        .data-notice li {
+            margin-bottom: 8px;
+        }
+        
+        .support-info {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 15px;
+            color: #718096;
+            text-align: center;
+        }
+        
+        .support-info a {
+            color: #667eea;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .email-footer {
+            background: linear-gradient(to right, #f8f9fa, #f1f3f4);
+            padding: 30px 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #718096;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            display: inline-block;
+            margin: 0 12px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            
+            .email-container {
+                border-radius: 16px;
+            }
+            
+            .email-header, .email-body, .email-footer {
+                padding: 30px 25px;
+            }
+            
+            .email-title {
+                font-size: 24px;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            .step {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header Section -->
+        <div class="email-header">
+            <div class="logo">
+                <div class="logo-icon">🗑️</div>
+                Funa Rumu
+            </div>
+            <h1 class="email-title">Account Deletion Instructions</h1>
+            <p class="email-subtitle">How to permanently delete your account</p>
+        </div>
+        
+        <!-- Body Section -->
+        <div class="email-body">
+            <p class="greeting">Hello User,</p>
+            
+            <p class="instructions">
+                You've requested information on how to delete your Funa Rumu account. 
+                Please follow the steps below carefully to permanently remove your account and data.
+            </p>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Log into Your Account</div>
+                        <div class="step-description">
+                            Open the Funa Rumu app and sign in to your account using your credentials.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Navigate to Profile Settings</div>
+                        <div class="step-description">
+                            Tap on your profile icon in the top-right corner, then select "Profile" from the menu.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Find Account Management</div>
+                        <div class="step-description">
+                            Scroll down to the "User Actions" section where you'll find the account deletion option.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title">Initiate Deletion Process</div>
+                        <div class="step-description">
+                            Tap on "Delete Account" button. You'll be asked to confirm this action in a pop-up window.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <div class="step-title">Confirm Deletion</div>
+                        <div class="step-description">
+                            Read the warning carefully, then confirm your decision by tapping "Delete Account" in the confirmation dialog.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning-notice">
+                <div class="notice-icon">⚠️</div>
+                <div>
+                    <strong>Important:</strong> Account deletion is permanent and cannot be undone. 
+                    Once deleted, all your data, preferences, and account history will be permanently removed from our systems.
+                </div>
+            </div>
+            
+            <div class="data-notice">
+                <div class="notice-icon">📊</div>
+                <div>
+                    <strong>Data that will be deleted:</strong>
+                    <ul>
+                        <li>Your personal profile information</li>
+                        <li>All your saved preferences and settings</li>
+                        <li>Account activity history</li>
+                        <li>Any connected services or integrations</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p class="instructions">
+                If you're experiencing issues with your account or have questions before proceeding with deletion, 
+                our support team is here to help.
+            </p>
+            
+            <div class="support-info">
+                Need assistance? Contact our support team
+            </div>
+        </div>
+        
+        <!-- Footer Section -->
+        <div class="email-footer">
+            <p>Funa Rumu Team</p>
+            
+            <div class="social-links">
+                <a href="https://mogasoft.com" class="social-link">Website</a>
+                <a href="#" class="social-link">Help Center</a>
+                <a href="#" class="social-link">Privacy Policy</a>
+            </div>
+            
+            <p class="copyright">
+                © 2024 Funa Rumu. All rights reserved.<br>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
