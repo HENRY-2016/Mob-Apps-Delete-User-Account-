@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Prices - Maila Group</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		
+		body {
+			font-family: 'Roboto', 'Arial', sans-serif;
+			background-color: #f5f5f5;
+			color: #333333;
+			line-height: 1.6;
+			padding: 20px;
+		}
+		
+		.price-email-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			background-color: #ffffff;
+			border-radius: 8px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+		}
+		
+		.price-email-header {
+			background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+			color: white;
+			padding: 30px;
+			text-align: center;
+		}
+		
+		.price-email-title {
+			font-size: 28px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		
+		.price-email-subtitle {
+			font-size: 16px;
+			opacity: 0.9;
+			margin-bottom: 15px;
+		}
+		
+		.price-chip {
+			display: inline-block;
+			background-color: #e74c3c;
+			color: white;
+			padding: 6px 12px;
+			border-radius: 16px;
+			font-weight: bold;
+			margin-top: 15px;
+			font-size: 14px;
+		}
+		
+		.content-grid {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 20px;
+			gap: 20px;
+		}
+		
+		.main-content {
+			flex: 1;
+			min-width: 300px;
+		}
+		
+		.sidebar {
+			width: 350px;
+			min-width: 300px;
+		}
+		
+		.card {
+			background-color: #ffffff;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			margin-bottom: 20px;
+			overflow: hidden;
+		}
+		
+		.card-content {
+			padding: 20px;
+		}
+		
+		.card-title {
+			font-size: 18px;
+			font-weight: bold;
+			color: #2c3e50;
+			margin-bottom: 15px;
+		}
+		
+		.terms-list {
+			margin: 15px 0;
+			padding-left: 20px;
+		}
+		
+		.terms-list li {
+			margin-bottom: 8px;
+			line-height: 1.5;
+			color: #555;
+		}
+		
+		.price-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 20px 0;
+		}
+		
+		.price-table th {
+			background-color: #34495e;
+			color: white;
+			padding: 12px 15px;
+			text-align: left;
+			font-weight: bold;
+			font-size: 14px;
+		}
+		
+		.price-table td {
+			padding: 12px 15px;
+			border-bottom: 1px solid #e0e0e0;
+			font-size: 14px;
+		}
+		
+		.price-table tr:nth-child(even) {
+			background-color: #f8f9fa;
+		}
+		
+		.price-table tr:hover {
+			background-color: #e8f4fd;
+		}
+		
+		.category-header {
+			background-color: #ecf0f1 !important;
+			font-weight: bold;
+			color: #2c3e50;
+			font-size: 15px;
+		}
+		
+		.price-value {
+			font-weight: bold;
+			color: #27ae60;
+			text-align: center;
+		}
+		
+		.business-term {
+			margin-bottom: 15px;
+		}
+		
+		.business-term-title {
+			font-weight: bold;
+			color: #e74c3c;
+			font-size: 14px;
+		}
+		
+		.business-term-desc {
+			color: #555;
+			font-size: 14px;
+		}
+		
+		.divider {
+			height: 1px;
+			background-color: #e0e0e0;
+			margin: 10px 0;
+		}
+		
+		.contact-item {
+			margin-bottom: 15px;
+		}
+		
+		.contact-label {
+			font-weight: bold;
+			color: #27ae60;
+			font-size: 14px;
+		}
+		
+		.contact-value {
+			color: #555;
+			font-size: 14px;
+		}
+		
+		.button-group {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+		
+		.button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+			padding: 12px 16px;
+			border-radius: 4px;
+			font-weight: 500;
+			cursor: pointer;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			border: none;
+			font-size: 14px;
+		}
+		
+		.button-contained {
+			background-color: #3498db;
+			color: white;
+		}
+		
+		.button-contained:hover {
+			background-color: #2980b9;
+		}
+		
+		.button-outlined {
+			background-color: transparent;
+			border: 1px solid;
+		}
+		
+		.button-green {
+			border-color: #27ae60;
+			color: #27ae60;
+		}
+		
+		.button-green:hover {
+			background-color: rgba(39, 174, 96, 0.1);
+		}
+		
+		.button-orange {
+			border-color: #e67e22;
+			color: #e67e22;
+		}
+		
+		.button-orange:hover {
+			background-color: rgba(230, 126, 34, 0.1);
+		}
+		
+		.button-purple {
+			border-color: #9b59b6;
+			color: #9b59b6;
+		}
+		
+		.button-purple:hover {
+			background-color: rgba(155, 89, 182, 0.1);
+		}
+		
+		.footer {
+			margin-top: 30px;
+			padding-top: 20px;
+			border-top: 1px solid #e0e0e0;
+			text-align: center;
+		}
+		
+		.footer-text {
+			color: #7f8c8d;
+			font-size: 14px;
+		}
+		
+		.footer-caption {
+			color: #95a5a6;
+			font-size: 12px;
+			margin-top: 8px;
+		}
+		
+		@media (max-width: 768px) {
+			.content-grid {
+				flex-direction: column;
+			}
+			
+			.sidebar {
+				width: 100%;
+			}
+			
+			.price-email-header {
+				padding: 20px;
+			}
+			
+			.price-email-title {
+				font-size: 24px;
+			}
+		}
+		
+		/* Print styles */
+		@media print {
+			body {
+				background-color: white;
+				padding: 0;
+			}
+			
+			.price-email-container {
+				box-shadow: none;
+				margin: 0;
+			}
+			
+			.button-group {
+				display: none;
+			}
+			
+			.price-table {
+				break-inside: avoid;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="price-email-container">
+		<!-- Header Section -->
+		<div class="price-email-header">
+			<h1 class="price-email-title">Maila Prices</h1>
+			<p class="price-email-subtitle">Prices valid from 24 Oct 2025 to 28 Oct 2026</p>
+			<div class="price-chip">Prices List</div>
+		</div>
+
+		<div class="content-grid">
+			<!-- Main Content -->
+			<div class="main-content">
+				<!-- Key Terms Card -->
+				<div class="card">
+					<div class="card-content">
+						<h2 class="card-title">Key Terms & Conditions</h2>
+						<ul class="terms-list">
+							<li>Prices are for standard 50 kgs bags</li>
+							<li>FOB prices exclude Origin Terminal Handling Charges (OTHC)</li>
+							<li>MOQ: 5 x 20' for non-basmati | 2 x 20' for basmati</li>
+							<li>Pre-shipment inspection by SGS/InterTek available (MOQ: 10 x 20')</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Price Tables -->
+				<div class="card">
+					<div class="card-content" style="padding: 0;">
+						<table class="price-table">
+							<thead>
+								<tr>
+									<th>Product Description</th>
+									<th style="width: 150px; text-align: center;">Price (USD) </th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- IRRI6 Long Grain White Rice -->
+								<tr class="category-header">
+									<td colspan="2">Coffee</td>
+								</tr>
+								<tr>
+									<td>Robusta 1800</td>
+									<td class="price-value">$355</td>
+								</tr>
+								<tr>
+									<td>Robusta 1500</td>
+									<td class="price-value">$350</td>
+								</tr>
+								<tr>
+									<td>Robusta 1200</td>
+									<td class="price-value">$345</td>
+								</tr>
+								<tr>
+									<td>Robusta 2000</td>
+									<td class="price-value">$340</td>
+								</tr>
+								<tr>
+									<td>Robusta 3000</td>
+									<td class="price-value">$330</td>
+								</tr>
+
+								<!-- Specialty Rice -->
+								<tr class="category-header">
+									<td colspan="2">Specialty Rice</td>
+								</tr>
+								<tr>
+									<td>100% Broken White Rice</td>
+									<td class="price-value">$315</td>
+								</tr>
+								<tr>
+									<td>IRRI6 Long Grain Brown Rice 5% Broken</td>
+									<td class="price-value">$355</td>
+								</tr>
+								<tr>
+									<td>IRRI6 Long Grain Parboiled Rice 5% Broken</td>
+									<td class="price-value">$365</td>
+								</tr>
+								<tr>
+									<td>Parboiled 100% Broken Rice</td>
+									<td class="price-value">$330</td>
+								</tr>
+		
+								<!-- Premium Rice Varieties -->
+								<tr class="category-header">
+									<td colspan="2">Maize</td>
+								</tr>
+								<tr>
+									<td>Maize 1</td>
+									<td class="price-value">$615</td>
+								</tr>
+								<tr>
+									<td>Maize 2</td>
+									<td class="price-value">$630</td>
+								</tr>
+								<tr>
+									<td>Maize 3</td>
+									<td class="price-value">$760</td>
+								</tr>
+								<tr>
+									<td>Maize 4</td>
+									<td class="price-value">$700</td>
+								</tr>
+								<tr>
+									<td>Maize 5</td>
+									<td class="price-value">$775</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Sidebar -->
+			<div class="sidebar">
+				<!-- Business Terms -->
+				<div class="card">
+					<div class="card-content">
+						<h2 class="card-title">Business Terms</h2>
+						<div class="business-term">
+							<div class="business-term-title">Loading:</div>
+							<div class="business-term-desc">23-27 MT per 20ft container</div>
+						</div>
+						<div class="divider"></div>
+						<div class="business-term">
+							<div class="business-term-title">Payment:</div>
+							<div class="business-term-desc">30% advance + 70% against B/L copy OR 100% LC at Sight</div>
+						</div>
+						<div class="divider"></div>
+						<div class="business-term">
+							<div class="business-term-title">Private Labeling:</div>
+							<div class="business-term-desc">Available (MOQ: 10 x 20')</div>
+						</div>
+						<div class="divider"></div>
+						<div class="business-term">
+							<div class="business-term-title">Documents:</div>
+							<div class="business-term-desc">Full set B/L, Commercial Invoice, Packing List, Phytosanitary Certificate, Certificate of Origin, Non-GMO Certificate, Fumigation Certificate</div>
+						</div>
+						<div class="divider"></div>
+						<div class="business-term">
+							<div class="business-term-title">Shipment:</div>
+							<div class="business-term-desc">15-25 days from advance payment</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Contact Information -->
+				<div class="card">
+					<div class="card-content">
+						<h2 class="card-title">Contact Information</h2>
+						<div class="contact-item">
+							<div class="contact-label">WhatsApp/Call:</div>
+							<div class="contact-value">+256 774 347 837</div>
+						</div>
+						<div class="contact-item">
+							<div class="contact-label">Email:</div>
+							<div class="contact-value">info@mailagroup.com</div>
+						</div>
+						<div class="contact-item">
+							<div class="contact-label">Business Hours:</div>
+							<div class="contact-value">8:00 AM - 5:00 PM EAT , Monday-Friday</div>
+						</div>
+						<div class="contact-item">
+							<div class="contact-label">Office Address:</div>
+							<div class="contact-value">
+								Plot 245 Pentagon House Lugonjo-Nakiwogo Rd
+								P.O. Box: 702278 Entebbe, Uganda
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer -->
+		<div class="footer">
+			<p class="footer-text">Maila Group Uganda- Uganda's leading producers and exporters of coffee,, beans ..</p>
+			<p class="footer-caption">Exporting Pakistani rice since 2015  | Update .</p>
+		</div>
+	</div>
+
+</body>
+</html>
