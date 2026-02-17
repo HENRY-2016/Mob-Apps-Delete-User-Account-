@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account · Dr.Kg Beddings guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f0f4f8 0%, #e9f0f5 100%);
+            color: #1a202c;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .email-container {
+            max-width: 720px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+        }
+
+        .email-header {
+            background: linear-gradient(145deg, #b91c1c 0%, #991b1b 100%);
+            padding: 48px 36px 42px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .email-header::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .email-header::after {
+            content: '';
+            position: absolute;
+            bottom: -90px;
+            left: -70px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-icon {
+            background: rgba(255, 255, 255, 0.2);
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            font-size: 28px;
+        }
+
+        .email-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 16px 0 10px;
+            position: relative;
+            z-index: 2;
+            letter-spacing: -0.3px;
+        }
+
+        .email-subtitle {
+            font-size: 17px;
+            opacity: 0.92;
+            max-width: 480px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(0,0,0,0.1);
+            padding: 8px 18px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        .email-body {
+            padding: 48px 42px;
+        }
+
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 24px;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .instructions {
+            margin-bottom: 28px;
+            color: #334155;
+            font-size: 16px;
+        }
+
+        /* TopBar highlight */
+        .topbar-visual {
+            background: #eef2ff;
+            border-radius: 40px;
+            padding: 20px 20px 12px 20px;
+            margin: 24px 0 32px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 6px 0 #b91c1c20;
+        }
+        .topbar-demo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1976d2;  /* same as AppTopBar primary */
+            padding: 12px 16px;
+            border-radius: 30px;
+            color: white;
+            box-shadow: 0 4px 0 #0d47a1;
+        }
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #1976d2;
+            border: 1px solid #ffffff50;
+            border-radius: 30px;
+            padding: 4px 12px 4px 8px;
+        }
+        .topbar-left span {
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+        }
+        .topbar-center {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            background: #0d47a1;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+        }
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .right-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .right-item span:first-child {
+            font-size: 20px;
+        }
+        .right-item span:last-child {
+            font-size: 10px;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+        .profile-highlight {
+            background: #ffffff30;
+            border-radius: 16px;
+            padding: 6px 12px;
+            border: 2px solid gold;
+        }
+        .caption {
+            text-align: center;
+            margin-top: 12px;
+            font-weight: 500;
+            color: #1e3a5f;
+        }
+
+        .steps-container {
+            margin: 40px 0;
+            background: #fafdff;
+            border-radius: 28px;
+            padding: 24px 24px 16px 24px;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.02), 0 8px 18px rgba(185, 28, 28, 0.06);
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 28px;
+            padding: 20px;
+            border-radius: 18px;
+            background: white;
+            border-left: 5px solid #b91c1c;
+            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.02);
+            transition: transform 0.1s ease;
+        }
+
+        .step:hover {
+            transform: translateX(4px);
+            box-shadow: 0 5px 18px rgba(185, 28, 28, 0.12);
+        }
+
+        .step-number {
+            background: #b91c1c;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 18px;
+            flex-shrink: 0;
+            font-size: 18px;
+            box-shadow: 0 6px 10px rgba(185,28,28,0.3);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #0f172a;
+            font-size: 17px;
+        }
+
+        .step-description {
+            color: #475569;
+            font-size: 15px;
+        }
+        .step-description code {
+            background: #e6e9f0;
+            padding: 3px 8px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #b91c1c;
+        }
+
+        .warning-notice {
+            background: #fee2e2;
+            border-left: 6px solid #b91c1c;
+            padding: 22px 22px 22px 24px;
+            margin: 36px 0 28px;
+            border-radius: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .notice-icon {
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .warning-notice strong {
+            color: #7f1d1d;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+
+        .data-notice {
+            background: #fffbeb;
+            border-left: 6px solid #f59e0b;
+            padding: 22px;
+            margin: 30px 0 32px;
+            border-radius: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .data-notice strong {
+            color: #92400e;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .data-notice ul {
+            margin: 6px 0 0 20px;
+            color: #5b3f1a;
+        }
+
+        .data-notice li {
+            margin-bottom: 6px;
+        }
+
+        /* contact card styles completely removed */
+
+        .support-info {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid #e9eef2;
+            font-size: 15px;
+            color: #3b4a5a;
+            text-align: center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22V12"/><path d="M3.3 7 12 12l8.7-5"/></svg>') no-repeat left center;
+            background-size: 18px;
+            padding-left: 28px;
+            background-position: 30% center;
+        }
+
+        .email-footer {
+            background: #f1f5f9;
+            padding: 32px 42px;
+            text-align: center;
+            font-size: 14px;
+            color: #4a5a6e;
+        }
+
+        .footer-links {
+            margin: 16px 0 12px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .footer-links a {
+            color: #b91c1c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6f7d8e;
+        }
+
+        @media (max-width: 550px) {
+            body { padding: 14px; }
+            .email-header, .email-body, .email-footer { padding: 32px 22px; }
+            .email-title { font-size: 26px; }
+            .step { padding: 16px; }
+            .support-info { background-position: 20% center; }
+            .topbar-demo { flex-wrap: wrap; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- header -->
+        <div class="email-header">
+            <div class="logo">
+                <div class="logo-icon">🛏️</div>
+                Dr.Kg Beddings
+            </div>
+            <h1 class="email-title">Account deletion guide</h1>
+            <p class="email-subtitle">exact steps based on AppTopBar & ProfileScreen</p>
+        </div>
+
+        <div class="email-body">
+            <p class="greeting">👋 Hello,</p>
+            <p class="instructions">
+                We see you’re requesting account deletion. Below we reconstructed the <strong>exact UI</strong> from 
+                <code>AppTopBar.js</code> and <code>ProfileScreen.js</code> — so you know exactly where to tap.
+            </p>
+
+            <!-- VISUAL: AppTopBar recreation with highlight on Profile icon -->
+            <div class="topbar-visual">
+                <div class="topbar-demo">
+                    <div class="topbar-left">
+                        <span>◀</span><span>Back</span>
+                    </div>
+                    <div class="topbar-center">
+                        PROFILE (or current screen)
+                    </div>
+                    <div class="topbar-right">
+                        <div class="right-item">
+                            <span>🛒</span>
+                            <span>Cart</span>
+                        </div>
+                        <div class="right-item profile-highlight">
+                            <span>👤</span>
+                            <span style="font-weight:800;">User</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="caption">
+                    ⬆️ As you can see in <strong>AppTopBar</strong>, the right side shows a <span style="background:gold; padding:2px 8px; border-radius:40px;">User icon</span> (person-outline). 
+                    Tap that to open the Profile screen (unless you’re already on Profile, then it becomes a Home icon).
+                </p>
+            </div>
+
+            <!-- Steps container – updated to reflect TopBar navigation -->
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Tap “User” icon in top bar</div>
+                        <div class="step-description">
+                            From any screen, look at the <strong>top right corner</strong> of the app. 
+                            You’ll see a  icon (👤) with the label “User” —  Tap it.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Open Profile screen</div>
+                        <div class="step-description">
+                            The screen title changes to <strong>“Profile”</strong>. 
+                            You’ll see your avatar, name, phone, and join date — that’s your profile card.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Scroll to the bottom section</div>
+                        <div class="step-description">
+                            Below the quick info card you’ll find a 
+                            <strong> “Delete Account”</strong> button — just above the Logout button. 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title">Tap “Delete Account” → confirm modal</div>
+                        <div class="step-description">
+                            A dialog appears: <strong>“Delete Account”</strong> with a warning message. 
+                            Press the red <strong>“Delete”</strong> button.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <div class="step-title">Permanent removal & logout</div>
+                        <div class="step-description">
+                            After a success message, you’re automatically logged out. 
+                            All user account data  is erased from our systems.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- warning + data notice -->
+            <div class="warning-notice">
+                <span class="notice-icon">⚠️</span>
+                <div>
+                    <strong>Permanent action — cannot be undone</strong>
+                    Exactly as implemented, your profile account data,
+                    PIN, and linked orders will be permanently removed.
+                </div>
+            </div>
+
+            <div class="data-notice">
+                <span class="notice-icon">📊</span>
+                <div>
+                    <strong>What gets erased (from ProfileScreen state):</strong>
+                    <ul>
+                        <li>Personal info: name, phone number, join date</li>
+                        <li>Encrypted PIN (changed via “Change Pin” section)</li>
+                        <li>Member chip & “days ago” metadata</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CONTACT INFO SECTION FULLY REMOVED -->
+
+            <div class="support-info">
+                ⚡ Having issues with the deletion flow? Our team usually replies within 30 min.
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="email-footer">
+            <p style="font-weight: 600;">Dr.Kg Beddings · Account removal instructions</p>
+            <!-- <div class="footer-links">
+                <a href="#">m.com</a>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+            </div> -->
+            <p class="copyright">
+                © 2024 Dr.Kg Beddings  All rights reserved.<br>
+                Version 1.0.0 • app theme #b91c1c • based on AppTopBar & ProfileScreen
+            </p>
+        </div>
+    </div>
+</body>
+</html>
