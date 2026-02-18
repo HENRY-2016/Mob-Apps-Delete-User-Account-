@@ -374,14 +374,14 @@
                 Dr.Kg Beddings
             </div>
             <h1 class="email-title">Account deletion guide</h1>
-            <p class="email-subtitle">exact steps based on AppTopBar & ProfileScreen</p>
+            <p class="email-subtitle">exact steps based on Profile Screen</p>
         </div>
 
         <div class="email-body">
             <p class="greeting">👋 Hello,</p>
             <p class="instructions">
                 We see you’re requesting account deletion. Below we reconstructed the <strong>exact UI</strong> from 
-                <code>AppTopBar.js</code> and <code>ProfileScreen.js</code> — so you know exactly where to tap.
+                <code>AppTopBar</code> and <code>ProfileScreen</code> — so you know exactly where to tap.
             </p>
 
             <!-- VISUAL: AppTopBar recreation with highlight on Profile icon -->
@@ -500,16 +500,20 @@
         <!-- footer -->
         <div class="email-footer">
             <p style="font-weight: 600;">Dr.Kg Beddings · Account removal instructions</p>
-            <!-- <div class="footer-links">
-                <a href="#">m.com</a>
-                <a href="#">Help Center</a>
-                <a href="#">Privacy Policy</a>
-            </div> -->
+            <div class="footer-links">
+                <a href="https://drkgbeddings.com/">drkgbedings.com</a>
+                <!-- <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a> -->
+            </div>
             <p class="copyright">
-                © 2024 Dr.Kg Beddings  All rights reserved.<br>
-                Version 1.0.0 • app theme #b91c1c • based on AppTopBar & ProfileScreen
+                © <span id="currentYear"></span> Dr.Kg Beddings All rights reserved.<br>
             </p>
         </div>
     </div>
+
+    <script>
+        // Dynamically set the current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
